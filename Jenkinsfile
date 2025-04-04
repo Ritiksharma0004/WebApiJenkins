@@ -2,8 +2,8 @@ pipeline {
     agent any
     environment {
         AZURE_CREDENTIALS_ID = 'jenkins-pipeline-sp'
-        RESOURCE_GROUP = 'WebAppJenkins'
-        APP_SERVICE_NAME = 'JenkinsApp'
+        RESOURCE_GROUP = 'myResourceGroup-69708'
+        APP_SERVICE_NAME = 'webapp-69708'
     }
 
     stages {
