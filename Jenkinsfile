@@ -51,12 +51,14 @@ pipeline {
             }
         }
 
-        stage('Deploy to Azure') {
-            steps {
-                bat '''
-                  powershell Compress-Archive -Path WebApiJenkins\\publish\\* -DestinationPath publish.zip -Force
-                az webapp deployment source config-zip --resource-group jenkins-ritik-rg --name jenkins-ritik-app123 --src publish.zip '''
-            }
-        }
+       stage('Deploy to Azure') {
+    steps {
+        bat '''
+          powershell Compress-Archive -Path WebApiJenkins\\publish\\* -DestinationPath publish.zip -Force
+          az webapp deploy --resource-group jenkins-ritik-rg --name jenkins-ritik-app123 --src-path publish.zip
+        '''
+    }
+}
+
     }
 }
