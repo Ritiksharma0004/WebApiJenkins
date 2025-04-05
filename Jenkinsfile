@@ -1,7 +1,5 @@
-// For terraform
 pipeline {
     agent any
-
     environment {
         ARM_CLIENT_ID       = credentials('AZURE_CLIENT_ID')
         ARM_CLIENT_SECRET   = credentials('AZURE_CLIENT_SECRET')
@@ -53,12 +51,12 @@ pipeline {
             }
         }
 
-             stage('Deploy to Azure') {
+        stage('Deploy to Azure') {
             steps {
                 bat '''
                   powershell Compress-Archive -Path WebApiJenkins\\publish\\* -DestinationPath publish.zip -Force
                 az webapp deployment source config-zip --resource-group jenkins-ritik-rg --name jenkins-ritik-app123 --src publish.zip '''
             }
-        }   
+        }
     }
 }
