@@ -10,9 +10,9 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/palakagarwal081/WebApiJenkins.git', branch: 'master'
+                git branch: 'master', url: 'https://github.com/palakagarwal081/WebApiJenkins'
             }
         }
 
